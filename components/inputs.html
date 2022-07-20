@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs</title>
+</head>
+<style>
+    :root{
+        --primary-color: #c40cca;
+        --secondary-color: dimgray;
+        --danger-color:#da3d3d;
+        --dymgray-color: dimgray;
+        --white-color: white;
+        --dark-gray-color: #dbdbdb;
+        --gray-color:#F9F9F9;
+    }
+    .container{
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    .input-container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .input-container_item{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .input-container_item input {
+        height: 2.5rem;
+        padding: 10px 16px;
+        width: 300px;
+        box-sizing: border-box;
+        border: 1px solid var(--dymgray-color);
+        border-radius: 5px;
+        color: var(--dymgray-color);
+        background-color: var(--white-color);
+    }
+
+    .input-container_item input:focus{
+        opacity: 1;
+        outline: none;
+    }
+
+    /*Inputs outline*/
+
+    .input-container_item input.outline.focus{
+        border: 2px solid var(--primary-color);
+    }
+    .input-container_item input.outline.error{
+        border: 2px solid var(--danger-color);
+    }
+    .input-container_item input.outline:disabled{
+        border: none;
+        background-color: var(--dark-gray-color);
+    }
+
+    /*Inputs fill*/
+    .input-container_item input.fill{
+        outline: none;
+        border: none;
+        border-radius: 5px 5px 0 0;
+        border-bottom: 1px solid var(--dark-gray-color);
+        background-color: var(--gray-color);
+    }
+
+    .input-container_item input.fill.focus{
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .input-container_item input.fill:disabled{
+        background-color: var(--dark-gray-color);
+    }
+
+    /* Error Group*/
+    .input-container_item input.fill.error{
+        border-bottom: 2px solid var(--danger-color);
+    }
+
+    .error_message{
+        margin: 5px;
+        font-size: 12px;
+        color: var(--danger-color);
+    }
+
+    /*With Lbels*/
+    
+    .form_input{
+        position: relative;
+    }
+
+    .form_input input {
+        z-index: 1;
+        opacity: .5;
+    }
+    .form_input input:focus{
+        border: 2px solid var(--primary-color);
+    }
+
+    .form_input label{
+        position: absolute;
+        left: 16px;
+        top: 10px;
+        font-size: 16px;
+        z-index: -1;
+    }
+
+    
+    .form_input > button {
+        margin: 3px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        height: 33px;
+        width: 30px;
+        background: var(--white-color);
+        color: var(--gray-color);
+        border: none;
+        outline: none;
+    }
+
+    .form_input > button:hover{
+        color: var(--danger-color);
+    }
+
+    /* Fill with labels*/
+    .form__fill-input {
+        position: relative;
+    }
+    .form__fill-input input {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid var(--dymgray-color);
+        background-color: var(--gray-color);
+    }
+    .form__fill-input input:focus{
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .form__fill-input label{
+        position: absolute;
+        left: 16px;
+        top: 10px;
+        color: var(--dymgray-color);
+        font-size: 16px;
+    }
+
+    
+    .form__fill-input > button {
+        margin: 3px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        height: 33px;
+        width: 30px;
+        background: var(--gray-color);
+        border: none;
+        outline: none;
+        opacity: .5;
+    }
+
+    .form__fill-input > button:hover{
+        color: var(--danger-color);
+    }
+
+    .input-container_item input.filled{
+        opacity: .5;
+        z-index: 1;
+    }
+
+    .form__fill-input label {
+        z-index: -1;
+    }
+
+    
+</style>
+<body>
+    <div class="container">
+        <h2>Inputs Text</h2>
+        <div class="input-container">
+            <div class="col">
+                <div id="outline" class="input-container_item">
+                    <input type="text" placeholder="Name" class="outline">
+                </div>
+                <div class="input-container_item">
+                    <input type="text" placeholder="Name" class="outline focus">
+                </div>
+                <div class="input-container_item">
+                    <input type="text" disabled placeholder="Name" class="outline">
+                </div>
+                <div class="input-container_item">
+                    <div class="form__group">
+                        <input type="text" placeholder="Name" class="outline error">
+                        <p class="error_message">Error</p>
+                    </div>
+                    
+                </div>
+                <div class="input-container_item">
+                    <div class="form_input">
+                        <input type="text" id="txt_form-input">
+                        <label id="form_input-label">Name</label>
+                        <button id="button_txt" class="form_input-button">x</button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="input-container_item">
+                    <input type="text" placeholder="Name" class="fill">
+                </div>
+                <div class="input-container_item">
+                    <input type="text" placeholder="Name" class="fill focus">
+                </div>
+                <div class="input-container_item">
+                    <input type="text" disabled placeholder="Name" class="fill">
+                </div>
+                <div class="input-container_item">
+                    <div class="form__group">
+                        <input type="text" placeholder="Name" class="fill error">
+                        <p class="error_message">Error</p>
+                    </div>
+                </div>
+                <div class="input-container_item">
+                    <div class="form__fill-input">
+                        <input type="text" id="input__form-fill" class="filled">
+                        <label id="label__form-fill">Name</label>
+                        <button id="button__form-fill" class="button_form-fill">x</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+    <script>
+        // STROKE
+        const label_txt = document.getElementById('form_input-label');
+        const input_txt = document.getElementById('txt_form-input');
+        const button = document.getElementById('button_txt');
+        
+        input_txt.addEventListener('focus', (event)=>{
+            input_txt.style.opacity = 1;
+            input_txt.style.zIndex = 'initial';
+            label_txt.style.zIndex = 'initial';
+            label_txt.style.top = '-8px';
+            label_txt.style.left = '10px';
+            label_txt.style.fontSize = '12px';
+            label_txt.style.color = '#6e3ae9';
+            label_txt.style.transition = '0.2s ease-out' 
+            label_txt.style.padding = '2px 5px';
+            label_txt.style.background = 'white';
+
+        })
+
+        input_txt.addEventListener('change', ()=> {
+            if(input_txt.value === ''){
+                input_txt.style.opacity = .5;
+                input_txt.style.zIndex = 1;
+                label_txt.style.zIndex = -1;
+                label_txt.style.top = '10px';
+                label_txt.style.fontSize = '16px';
+                
+            }
+
+        })
+
+        input_txt.addEventListener('blur', ()=> {
+            if(input_txt.value === ''){
+                input_txt.style.opacity = .5;
+                input_txt.style.zIndex = 1;
+                label_txt.style.zIndex = -1;
+                label_txt.style.top = '10px';
+                label_txt.style.fontSize = '16px';
+                label_txt.style.color = 'dimgray';
+            }
+
+        })
+
+        button.addEventListener('click', ()=> {
+            input_txt.value = '';
+            if(input_txt.value === ''){
+                label_txt.style.top = '10px';
+                label_txt.style.fontSize = '16px';
+            }
+        })
+
+        // FILL
+        const label_fill = document.getElementById('label__form-fill');
+        const input_fill = document.getElementById('input__form-fill');
+        const button_fill = document.getElementById('button__form-fill');
+        
+        input_fill.addEventListener('focus', (event)=>{
+            input_fill.style.opacity = 1;
+            input_fill.style.zIndex = 'initial';
+            label_fill.style.zIndex = 'initial';
+            label_fill.style.top = '-8px';
+            label_fill.style.left = '10px';
+            label_fill.style.fontSize = '12px';
+            label_fill.style.color = '#6e3ae9';
+            label_fill.style.transition = '0.2s ease-out' 
+            label_fill.style.padding = '2px 5px';
+
+        })
+
+        input_fill.addEventListener('change', ()=> {
+            if(input_fill.value === ''){
+                input_fill.style.opacity = .5;
+                input_fill.style.zIndex = 1;
+                label_fill.style.zIndex = -1;
+                label_fill.style.top = '10px';
+                label_fill.style.fontSize = '16px';
+                
+            }
+
+        })
+
+        input_fill.addEventListener('blur', ()=> {
+            if(input_fill.value === ''){
+                input_fill.style.opacity = .5;
+                input_fill.style.zIndex = 1;
+                label_fill.style.zIndex = -1;
+                label_fill.style.top = '10px';
+                label_fill.style.fontSize = '16px';
+                label_fill.style.color = 'dimgray';
+            }
+
+        })
+
+        button_fill.addEventListener('click', ()=> {
+            input_fill.value = '';
+            if(input_fill.value === ''){
+                label_fill.style.top = '10px';
+                label_fill.style.fontSize = '16px';
+            }
+        })
+    </script>
+</body>
+</html>

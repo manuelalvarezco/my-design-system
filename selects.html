@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Selects</title>
+    <style>
+    :root{
+        --primary-color: #6200EE;
+        --secondary-color: dimgray;
+        --danger-color:#da3d3d;
+        --dymgray-color: dimgray;
+        --white-color: white;
+        --dark-gray-color: #dbdbdb;
+        --gray-color:#F9F9F9;
+        --border-radius-sm:5px;
+    }
+    body {
+        background-color: var(--gray-color);
+    }
+    .container{
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    .select-container{
+        display: flex
+    }
+
+    .form-group {
+        margin: 20px;
+    }
+
+    .form-group select{
+        border: none;
+        height: 2.5em;
+        width: 100%;
+        padding: 10px 16px;
+        outline: none;
+        font-size: 16px;
+        background-color: transparent;
+    }
+    
+    .form-select {
+        background: white;
+        width: 270px;
+        padding: 10px 16px;
+    }
+    
+
+
+    /*Options*/
+
+    .form-group_select {
+        width: 300px;
+        position: relative;
+    }
+
+    .form-group_header{
+        padding: 16px;
+        cursor: pointer;
+        background: var(--white-color)
+    }
+
+    .form-group_header span:nth-child(1) {
+        font-size: 18px;
+        color: var(--dymgray-color);
+
+    }
+
+    .form_group-options {
+        margin-top: 5px;
+        padding: 10px 0;
+        background-color: var(--white-color);
+        width: 300px;
+        display: none;
+    }
+
+    .form_group-options li{
+        list-style: none;
+        font-size: 18px;
+        padding: 10px 16px;
+        cursor: pointer;
+        color: var(--dymgray-color);
+    }
+
+    .form_group-options li:hover {
+        background-color: var(--dark-gray-color);
+    }
+
+    /* Icons */
+    .material-symbols-outlined{
+        position: absolute;
+        right: 16px;
+        font-size: 24px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Selects</h1>
+        <div class="select_container">
+            <div class="form-group">
+                <div class="form-select">
+                    <select>
+                        <option value="">Select</option>
+                        <option value="">FrontEnd</option>
+                        <option value="">Backend</option>
+                        <option value="">FullStack</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-group_select">
+                    <div class="form-group_header" id="form-group_header">
+                        <span>Select</span>
+                        <span class="material-symbols-outlined">
+                            expand_more
+                            </span>
+                    </div>
+                    <div class="form_group-options" id="form_group-options">
+                        <li>
+                            <span class="material-symbols-outlined">
+                            terminal
+                            </span>
+                            <span>Frontend</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                            terminal
+                            </span>
+                            <span>Backend</span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">
+                            terminal
+                            </span>
+                            <span>FullStack</span>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const formHeader = document.getElementById('form-group_header');
+        const formOptions = document.getElementById('form_group-options');
+
+        formHeader.addEventListener('click', ()=> {
+            formOptions.style.display = 'block';
+        })
+
+        formHeader.addEventListener('blur', ()=> {
+            formOptions.style.display = 'none';
+        })
+    </script>
+</body>
+</html>
